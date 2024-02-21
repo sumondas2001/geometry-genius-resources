@@ -43,7 +43,7 @@ function calculateRectangleArea(){
 
 }
 
-
+// parallelogram 
 function calculateParallelogramArea(){
 
      const base = getInputValue('parallelogram-base');
@@ -54,6 +54,15 @@ function calculateParallelogramArea(){
      setElementInnerText('parallelogram-area',area);
 
      // console.log(parallelogramArea)
+}
+
+function calculateEllipseArea(){
+     const ellipseLarge = getInputValue('ellipse-large-radius');
+     const ellipseShort = getInputValue('ellipse-short-radius');
+     
+     const area = 3.14 * ellipseLarge * ellipseShort;
+
+     setElementInnerText('ellipse-area', area);
 }
 
 
