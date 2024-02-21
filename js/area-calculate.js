@@ -18,6 +18,8 @@ function calculateTriangleArea(){
      const triangleArea = document.getElementById('triangle-area');
      triangleArea.innerText = area;
 
+     addToCalculateEntry('truangle',area)
+
 
      // console.log(area)
 }
@@ -45,6 +47,8 @@ function calculateRectangleArea(){
      const rectangleArea = document.getElementById('rectangle-area');
      rectangleArea.innerText = rectangleareaValue;
 
+     addToCalculateEntry('rectangle' , rectangleareaValue);
+
     
 
 
@@ -67,6 +71,8 @@ function calculateParallelogramArea(){
      const area = base * height;
      setElementInnerText('parallelogram-area',area);
 
+     addToCalculateEntry('parallelogram' , area);
+
      // console.log(parallelogramArea)
 }
 // ellipse
@@ -79,6 +85,8 @@ function calculateEllipseArea(){
      const areaToDecimal = area.toFixed(2);
 
      setElementInnerText('ellipse-area', areaToDecimal);
+
+     addToCalculateEntry('ellipse' , areaToDecimal);
 }
 
 // pentagon
@@ -94,6 +102,8 @@ function calculatePentagonArea(){
      const area = 0.5 * pentagonPerimeter * pentagonBase;
 
      setElementInnerText('Pentagon-area', area);
+
+     addToCalculateEntry('Pentagon' , area);
 }
 // Rhombus
 function calculateRhombusArea(){
@@ -106,6 +116,9 @@ function calculateRhombusArea(){
      }
      const area = 0.5 * diagonal1 * diagonal2;
      setElementInnerText('rhombus-area', area);
+
+     addToCalculateEntry('rhombus' , area);
+
 }
 
 
@@ -123,4 +136,19 @@ function getInputValue(Id){
 function setElementInnerText(elementId ,area){
      const element = document.getElementById(elementId);
      element.innerText = area;
+}
+
+// add To Calculate Entry
+function addToCalculateEntry(areaType , area){
+     const areaCalculate = document.getElementById('area-calculate');
+
+     const count = areaCalculate.childElementCount;
+
+     const h1 =document.createElement('h1');
+
+     h1.innerHTML = `${count  + 1} ${areaType} ${area} cm <sup>2</sup>` ;
+
+     areaCalculate.appendChild(h1);
+
+
 }
