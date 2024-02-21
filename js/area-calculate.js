@@ -29,14 +29,23 @@ function calculateRectangleArea(){
      const WidthInputText = WidthInput.value;
      const widthValue = parseFloat(WidthInputText);
 
+     
+
      const lengthInput = document.getElementById('rectangle-length');
      const lengthInputText = lengthInput.value;
      const lengthValue = parseFloat(lengthInputText);
 
+     if(isNaN(widthValue) || isNaN(lengthValue)){
+          alert('please insert number');
+          return;
+          // console.log('plz enter your number')
+     }
      const rectangleareaValue = widthValue * lengthValue;
 
      const rectangleArea = document.getElementById('rectangle-area');
      rectangleArea.innerText = rectangleareaValue;
+
+    
 
 
      // console.log(area)
@@ -50,19 +59,53 @@ function calculateParallelogramArea(){
 
      const height = getInputValue('parallelogram-height');
 
+     if(isNaN(base) || isNaN(height)){
+          alert('please insert number');
+          return;
+     }
+
      const area = base * height;
      setElementInnerText('parallelogram-area',area);
 
      // console.log(parallelogramArea)
 }
-
+// ellipse
 function calculateEllipseArea(){
      const ellipseLarge = getInputValue('ellipse-large-radius');
      const ellipseShort = getInputValue('ellipse-short-radius');
      
      const area = 3.14 * ellipseLarge * ellipseShort;
+     
+     const areaToDecimal = area.toFixed(2);
 
-     setElementInnerText('ellipse-area', area);
+     setElementInnerText('ellipse-area', areaToDecimal);
+}
+
+// pentagon
+function calculatePentagonArea(){
+     const pentagonPerimeter = getInputValue('Pentagon-perimeter');
+
+     const pentagonBase = getInputValue('Pentagon-base');
+     if(isNaN(pentagonPerimeter) || isNaN(pentagonBase)){
+          alert('please insert number');
+          return;
+     }
+
+     const area = 0.5 * pentagonPerimeter * pentagonBase;
+
+     setElementInnerText('Pentagon-area', area);
+}
+// Rhombus
+function calculateRhombusArea(){
+     const diagonal1 = getInputValue('diagonal-1');
+     const diagonal2 = getInputValue('diagonal-2');
+
+     if(isNaN(diagonal1) || isNaN(diagonal2)){
+          alert('please insert number');
+          return;
+     }
+     const area = 0.5 * diagonal1 * diagonal2;
+     setElementInnerText('rhombus-area', area);
 }
 
 
